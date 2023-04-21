@@ -26,8 +26,8 @@ contract Verifier is KeysWithPlonkVerifier, KeysWithPlonkVerifierOld, Constants 
         for (uint256 i = 0; i < _individualVksInputs.length; ++i) {
             uint256 commitment = _individualVksInputs[i];
             _individualVksInputs[i] = commitment & INPUT_MASK;
-    }
-    VerificationKey memory vk = getVkAggregated(uint32(_vkIndexes.length));
+        }
+        VerificationKey memory vk = getVkAggregated(uint32(_vkIndexes.length));
 
     return
         verify_serialized_proof_with_recursion(
